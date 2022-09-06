@@ -7,21 +7,18 @@ class Solution:
             t_i = candidates.index(target)
             print(t_i)
             candidates = candidates[:t_i]
-        combo = []
-        def dfs(i):
-            if i >= len(candidates) or sum(combo) >= target:
-                if sum(combo) == target and sorted(combo) not in res:
-                    res.append((sorted(combo)).copy())
+        print("candidates", candidates)
+        def dfs(i, curr, total):
+            if total == target:
+                res.append(curr.copy())
                 return
-            combo.append(candidates[i])
-            # print("combo append", combo)
-            dfs(i)
-            combo.pop()
-            dfs(i + 1)
-        
-        for i in range(len(candidates)):
-            dfs(i)
-            # print("res", res)
+            if i >= len(candidates) or total > target:
+                return
+            curr.append(candidates[i])
+            dfs(i, curr, total + candidates[i])
+            curr.pop()
+            dfs(i+1, curr, total)
+        dfs(0, [], 0)
         return res
             
                 
