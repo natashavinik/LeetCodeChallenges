@@ -10,11 +10,11 @@ class Solution:
         print(in_array)
         res = []
         for i in range(len(in_array) - 1, 0, -1):
-            if in_array[i] != []:
-                res.extend(in_array[i])
-            if len(res) == k:
-                break
-        return res
+            for n in in_array[i]:
+                res.append(n)
+                if len(res) == k:
+                    return res
+        # return res
             
         
                 
