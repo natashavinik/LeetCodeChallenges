@@ -3,11 +3,12 @@ class Solution:
         res = 1
         l_dict = {}
         left = 0
-        
+        maxf = 0
         for right in range(len(s)):
             l_dict[s[right]] = l_dict.get(s[right], 0) + 1
+            maxf = max(maxf, l_dict[s[right]])
             
-            while (right - left + 1) - max(l_dict.values()) > k:
+            while (right - left + 1) - maxf > k:
                 l_dict[s[left]] -= 1
                 left += 1
             res = max(res, right - left + 1)
