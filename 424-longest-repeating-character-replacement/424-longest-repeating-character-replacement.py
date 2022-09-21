@@ -8,13 +8,8 @@ class Solution:
             l_dict[s[right]] = l_dict.get(s[right], 0) + 1
             
             while (right - left + 1) - max(l_dict.values()) > k:
-                if l_dict[s[left]] > 1:
-                    l_dict[s[left]] -= 1
-                else:
-                    l_dict.pop(s[left])
+                l_dict[s[left]] -= 1
                 left += 1
-   
-            # if (len(l_dict.items()) == 2 and min(l_dict.values()) <= k) or (len(l_dict.items()) == 1) or (sum(l_dict.values()) - max(l_dict.values()) <= k ):
             res = max(res, right - left + 1)
     
         return res
