@@ -14,7 +14,7 @@ class Solution:
             slow = slow.next
             fast = fast.next.next
             
-        prev, curr = None, slow
+        curr, prev = slow, None
         
         while curr:
             curr.next, curr, prev = prev, curr.next, curr
@@ -24,5 +24,7 @@ class Solution:
         while second.next:
             first.next, first = second, first.next
             second.next, second = first, second.next
-            
-            
+        
+        
+        
+        
