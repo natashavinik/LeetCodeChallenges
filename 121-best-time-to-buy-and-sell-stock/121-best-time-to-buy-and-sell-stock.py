@@ -7,6 +7,18 @@ class Solution(object):
 #         stack = [1]
 #         prices = [7,1,5,3,6,4]
 #         num = 5
+
+
+        lowest = prices[0]
+        most = 0
+        for num in prices:
+            if num < lowest:
+                lowest = num
+            most = max(most, num - lowest)
+        return most
+
+
+
 #         most = 0
 #         stack = []
 #         for num in prices:
@@ -20,13 +32,16 @@ class Solution(object):
 #             elif num < stack[-1]:
 #                 stack.append(num)
 #         return most
-        profit = 0
-        l = 0
+    
+    
+    
+#         profit = 0
+#         l = 0
         
-        for right in range(l, len(prices)):
-            if prices[right] < prices[l]:
-                l = right
-            profit = max(profit, prices[right] - prices[l])
-        return profit
+#         for right in range(l, len(prices)):
+#             if prices[right] < prices[l]:
+#                 l = right
+#             profit = max(profit, prices[right] - prices[l])
+#         return profit
                 
         
