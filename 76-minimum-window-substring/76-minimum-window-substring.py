@@ -14,17 +14,7 @@ class Solution:
         res = ""
         s_dict = {}
         left = 0
-        # "abcabdebac"
-        # "cda"
-        #t_dict = {'c': 1, 'd':1, 'a':1}\
-        #lett_needs = 3
-        #lett_has = 3
-        #min_len = 4
-        #res = "abcabd"
-        #s_dict = {'a':1, 'c':1, 'd':1}
-        #left = 2
-        #right = 5
-        #r_lett = d
+
         for right in range(len(s)):
             r_lett = s[right]
             if r_lett not in t_dict:
@@ -45,13 +35,43 @@ class Solution:
                     s_dict[s[left]] -= 1
                     if s_dict[s[left]] < t_dict[s[left]]:
                         lett_has -= 1
-                    left += 1
-                while left < len(s) and s[left] not in t_dict and left < right:
-                    left += 1
+                left += 1
+                # while left < len(s) and s[left] not in t_dict and left < right:
+                #     left += 1
                 
         return res       
     
-                
+#         if t == "":
+#             return ""
+#         if len(t) > len(s):
+#             return ""
+        
+#         r_len = float("infinity")
+#         res = []
+#         t_dict = {}
+#         for lett in t:
+#             t_dict[lett] = t_dict.get(lett, 0) + 1
+#         print(t_dict)
+#         l = 0
+#         have, need = 0, len(t_dict)
+#         n_dict = {}
+#         for r in range(len(s)):
+#             if s[r] in t_dict:
+#                 n_dict[s[r]] = n_dict.get(s[r], 0) + 1
+#                 if t_dict[s[r]] == n_dict[s[r]]:
+#                     have += 1
+#             while have == need:
+#                 if r - l + 1 < r_len:
+#                     r_len = r - l + 1
+#                     res = [l,r]
+#                 if s[l] in n_dict:
+#                     n_dict[s[l]] -= 1
+#                     if n_dict[s[l]] < t_dict[s[l]]:
+#                         have -= 1
+#                 l += 1
+#         if res == []:
+#             return ""
+#         return (s[res[0]:res[1] + 1])
                 
             
             
