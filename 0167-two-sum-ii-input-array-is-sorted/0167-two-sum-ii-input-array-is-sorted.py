@@ -10,11 +10,9 @@ class Solution:
             if n_sum == target:
                 return [left + 1, right + 1]
             elif n_sum < target:
-                while n_left == numbers[left]:
-                    left += 1
+                left += 1
             else:
-                while n_right == numbers[right]:
-                    right -= 1
+                right -= 1
                     
         
         
